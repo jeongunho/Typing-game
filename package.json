@@ -1,0 +1,16 @@
+{
+  "name": "typing",
+  "version": "1.0.0",
+  "description": "typing game",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "toastify-js": "^1.11.2",
+    "axios": "^0.26.1"
+  }
+}
