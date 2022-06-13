@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/toastify-js/src/toastify.js"></script>
+    <link rel="stylesheet" href="../node_modules/toastify-js/src/toastify.css">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <title>Typing game</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <h1>Typing Game</h1>
+      </header>
+      <div class="word-display">
+        게임 시작 버튼을 눌러주세요!
+      </div>
+      <div class="word-input-box">
+        <input type="text" class="word-input">
+      </div>
+      <div class="game-info">
+        <div>남은 시간 : <span class="time">0</span>초</div>
+        <div>획득 점수 : <span class="score">0</span>점</div>
+      </div>
+      <button class="button loading" onclick="run()">게임을 불러오는 중입니다</button>
+      <div class="result">
+        <p>당신의 점수는 <span class="myscore">0</span>점입니다!</p>
+        <button class="again button">다시 하기</button>
+      </div>
+    </div>
+    <div class="dot-wrapper">
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+    </div>
+  </body>
+</html>
