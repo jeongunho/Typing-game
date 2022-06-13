@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+.wrapper {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: transparent;
+  color: #fff;
+}
+.header > h1 {
+  display: inline-block;
+  font-family: 'Raleway';
+  padding: 1.5rem;
+  font-size: 3rem;
+  --borderWidth: 1px;
+  position: relative;
+}
+.header > h1::after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(225deg, #3a3e69, 5%, #119dff, 50%, transparent);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 5s ease-in-out alternate infinite;
+  background-size: 200% 200%;
+  border-radius: 2rem;
+}
+.word-display {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+.word-input-box {
+  margin-top: 2rem;
+}
+.word-input {
+  padding: 0.75rem;
+  width: 300px;
+  box-shadow: 1px 1px 5px #000;
+  outline: none;
+}
+.game-info {
+  margin-top: 1.5rem;
+  font-size: .75rem;
+  display: flex;
+  justify-content: center;
+}
+.game-info > div:first-child {
+  margin-right: 1.5rem;
+}
+.game-info > div > span {
+  font-size: 1.75rem;
+}
+.button {
+  background: linear-gradient(225deg, #3a3e69, 5%, #119dff, 50%, transparent);
+  animation: animatedgradient 5s ease-in-out alternate infinite;
+  background-size: 200% 200%;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: .75rem 1.5rem;
+  border-radius: 21px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+}
+.loading {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.result {
+  opacity: 0;
+  pointer-events: none;
+  padding: 2rem;
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 400ms ease;
+  background: linear-gradient(180deg, #04fafd, 5%, #119dff, 50%, #3a3e69);
+}
+.result > p {
+  font-size: 2rem;
+  color: #fff;
+}
+.result.visible {
+  opacity: 1;
+  top: 55%;
+  pointer-events: initial;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.dot-wrapper {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #04fafd, 5%, #119dff, 50%, #3a3e69);
+  position: absolute;
+  top: 0;
+}
+.dot-wrapper div {
+  height: 60px;
+  width: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  animation: 4s linear infinite;
+}
+div .dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+.dot-wrapper div:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+.dot-wrapper div:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation: animate 10s linear infinite;
+}
+.dot-wrapper div:nth-child(3) {
+  top: 40%;
+  left: 40%;
+  animation: animate 3s linear infinite;
+}
+.dot-wrapper div:nth-child(4) {
+  top: 66%;
+  left: 30%;
+  animation: animate 7s linear infinite;
+}
+.dot-wrapper div:nth-child(5) {
+  top: 90%;
+  left: 10%;
+  animation: animate 9s linear infinite;
+}
+.dot-wrapper div:nth-child(6) {
+  top: 30%;
+  left: 60%;
+  animation: animate 5s linear infinite;
+}
+.dot-wrapper div:nth-child(7) {
+  top: 70%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+.dot-wrapper div:nth-child(8) {
+  top: 75%;
+  left: 60%;
+  animation: animate 10s linear infinite;
+}
+.dot-wrapper div:nth-child(9) {
+  top: 50%;
+  left: 50%;
+  animation: animate 6s linear infinite;
+}
+.dot-wrapper div:nth-child(10) {
+  top: 45%;
+  left: 20%;
+  animation: animate 10s linear infinite;
+}
+.dot-wrapper div:nth-child(11) {
+  top: 10%;
+  left: 90%;
+  animation: animate 9s linear infinite;
+}
+.dot-wrapper div:nth-child(12) {
+  top: 20%;
+  left: 70%;
+  animation: animate 7s linear infinite;
+}
+.dot-wrapper div:nth-child(13) {
+  top: 20%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+.dot-wrapper div:nth-child(14) {
+  top: 60%;
+  left: 5%;
+  animation: animate 6s linear infinite;
+}
+.dot-wrapper div:nth-child(15) {
+  top: 90%;
+  left: 80%;
+  animation: animate 9s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(70deg);
+  }
+  100% {
+    transform: scale(1.3) translateY(-100px) rotate(360deg);
+  }
+}
