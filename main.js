@@ -48,7 +48,7 @@ const runToast = (text) => {
     newWindow: true,
     gravity: 'top',
     position: 'right',
-    background: 'linear-gradient(0deg, #04fafd, 5%, #119dff, 50%, #3a3e69)'
+    background: 'linear-gradient(0deg, #04fafd, 5%, #119dff, 50%, #3a3e69)',
   }
   Toastify(option).showToast();
 }
