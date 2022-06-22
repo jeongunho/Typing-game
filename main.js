@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
 const show = () => {
@@ -19,7 +19,7 @@ const show = () => {
 }
 */
 
-const url = 'http://random-word-api.herokuapp.com/word?number=500';
+const url = "http://random-word-api.herokuapp.com/word?number=500";
 const settingTime = 5;
 let words = [];
 let time;
@@ -28,53 +28,56 @@ let isReady = false;
 let isPlaying = false;
 let timeInterval;
 
-const wrapper = document.querySelector('.wrapper')
-const word = document.querySelector('.word-display');
-const wordInput = document.querySelector('.word-input');
-const timeDisplay = document.querySelector('.time');
-const scoreDisplay = document.querySelector('.score');
-const button = document.querySelector('.button');
-const result = document.querySelector('.result');
-const myscore = document.querySelector('.myscore');
-const again = document.querySelector('.again');
+const wrapper = document.querySelector(".wrapper");
+const word = document.querySelector(".word-display");
+const wordInput = document.querySelector(".word-input");
+const timeDisplay = document.querySelector(".time");
+const scoreDisplay = document.querySelector(".score");
+const button = document.querySelector(".button");
+const result = document.querySelector(".result");
+const myscore = document.querySelector(".myscore");
+const again = document.querySelector(".again");
 
 time = 5;
 
 // Function
-const runToast = (text) => {
+const runToast = text => {
   const option = {
     text: text,
     duration: 3000,
     newWindow: true,
-    gravity: 'top',
-    position: 'right',
-    background: 'linear-gradient(0deg, #04fafd, 5%, #119dff, 50%, #3a3e69)',
-  }
+    gravity: "top",
+    position: "right",
+    background: "linear-gradient(0deg, #04fafd, 5%, #119dff, 50%, #3a3e69)",
+  };
   Toastify(option).showToast();
-}
+};
 
 const getWords = () => {
-  axios.get(url).then(response => {
-    words = response.data.filter(word => {
-      return word.length < 8
-    });
-    button.textContent = '게임 시작'
-    button.classList.remove('loading');
-    isReady = true;
-  }).catch(error => console.log(error));
-}
+  axios
+    .get(url)
+    .then(response => {
+      words = response.data.filter(word => {
+        return word.length < 8;
+      });
+      button.textContent = "게임 시작";
+      button.classList.remove("loading");
+      isReady = true;
+    })
+    .catch(error => console.log(error));
+};
 
-button.addEventListener('click', () => {
+button.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * words.length);
   word.textContent = words[randomIndex];
   button.style.opacity = 0;
-  button.style.pointerEvents = 'none';
-})
+  button.style.pointerEvents = "none";
+});
 
 const init = () => {
   time = settingTime;
   getWords();
-}
+};
 
 const countDown = () => {
   if (time > 0) {
@@ -82,12 +85,12 @@ const countDown = () => {
   } else {
     clearInterval(timeInterval);
     isPlaying = false;
-    result.classList.add('visible');
+    result.classList.add("visible");
     myscore.textContent = score;
     button.style.opacity = 1;
   }
   timeDisplay.textContent = time;
-}
+};
 
 const run = () => {
   clearInterval(timeInterval);
@@ -95,14 +98,14 @@ const run = () => {
     return;
   }
   timeInterval = setInterval(countDown, 1000);
-  wordInput.value = '';
+  wordInput.value = "";
   score = 0;
   time = settingTime;
   scoreDisplay.textContent = score;
   isPlaying = true;
-}
+};
 
-const checkMatch = (param) => {
+const checkMatch = param => {
   const myTyping = param.currentTarget.value.toLowerCase();
   let wordDisplay = word.innerText.toLowerCase();
 
@@ -114,22 +117,22 @@ const checkMatch = (param) => {
       score++;
       runToast(wordDisplay);
       time = settingTime;
-      wordInput.value = '';
+      wordInput.value = "";
       const randomIndex = Math.floor(Math.random() * words.length);
       word.textContent = words[randomIndex];
     }
   }
   scoreDisplay.textContent = score;
-}
+};
 
-again.addEventListener('click', (e) => {
-  result.classList.remove('visible');
+again.addEventListener("click", e => {
+  result.classList.remove("visible");
   scoreDisplay.textContent = 0;
-  button.style.pointerEvents = 'initial';
+  button.style.pointerEvents = "initial";
 });
 
 // Event handler
-wordInput.addEventListener('keydown', checkMatch);
+wordInput.addEventListener("keydown", checkMatch);
 
 // Getting ready
 init();
